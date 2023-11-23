@@ -10,7 +10,7 @@ export function middleware(req: NextRequest) {
   const ua = userAgent(req)
   // console.log(ua)
   console.log(req.nextUrl)
-  if (req.nextUrl.pathname.endsWith(".js"))
+  if (req.nextUrl.pathname.endsWith(".js") || req.nextUrl.pathname.endsWith(".json"))
     return;
   req.nextUrl.pathname = "/index.html"
   return NextResponse.rewrite(req.nextUrl)
