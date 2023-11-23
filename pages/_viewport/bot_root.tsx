@@ -24,7 +24,7 @@ const BotRoot: React.FunctionComponent<Html> = (repostr) => {
       <meta name="description" content="새로운선택" />
       <meta property="og:title" content="새로운선택" />
       <meta property="og:description" content="새로운선택"/>
-      <meta property="og:image" content="/icons/newparty.jpg"/>
+      <meta property="og:image" content="https:/newparty.kr/icons/newparty.jpg"/>
       <meta property="og:type" content="website"/>
     </Head>
     <div dangerouslySetInnerHTML={{__html: repostr.html}} />
