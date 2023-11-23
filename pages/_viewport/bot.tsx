@@ -5,6 +5,7 @@ import Head from 'next/head'
 type Repo = {
   title: string
   author: string
+  photo: string
   pub_date: string
   article: string
   abstracts: string
@@ -13,18 +14,20 @@ type Repo = {
 const Detail: React.FunctionComponent<Repo> = (repo) => {
   // const product = await fetch(`https://lcw99.github.io/newparty-cms/article/articles.json`).then((res) => res.json())
   // console.log(repo)
+  const imageUrl = `https://lcw99.github.io/newparty-cms/article/photo/${repo.photo}`
   return <>
     <Head>
       <title>{repo.title}</title>
       <meta name="description" content={repo.abstracts} />
       <meta property="og:title" content={repo.title}/>
       <meta property="og:description" content={repo.abstracts}/>
-      <meta property="og:image" content="https://newparty.kr/icons/newparty.jpg"/>
+      <meta property="og:image" content={imageUrl}/>
       <meta property="og:type" content="website"/>
     </Head>
     <div>
       {repo.title}<br/>
       {repo.author}<br/>
+      {imageUrl}<br/>
       {repo.pub_date}<br/>
       {repo.abstracts}
     </div>
