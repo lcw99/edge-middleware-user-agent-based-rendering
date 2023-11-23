@@ -1,12 +1,17 @@
 import { useRouter } from 'next/router'
+import { useSearchParams } from 'next/navigation'
 import Image from 'next/image'
 import { Layout, Text, Page, Code, Link, Snippet } from '@vercel/examples-ui'
 
 import board from '../public/board.jpg'
 
 function Home() {
-  const { route } = useRouter()
-  const viewport = route.replace('/_viewport/', '')
+  const router = useRouter()
+  const viewport = router.route.replace('/_viewport/', '')
+
+  const searchParams = useSearchParams()
+  const search = searchParams.get('b')
+  console.log(search)
 
   return (
     <Page>

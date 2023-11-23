@@ -12,10 +12,10 @@ export function middleware(req: NextRequest) {
   // Check the viewport
   // const viewport = device.type === 'mobile' ? 'mobile' : 'desktop'
   const viewport = browser.name?.toLowerCase().includes("bot") ? 'mobile' : 'desktop'
-  console.log(viewport)
   // Update the expected url
   req.nextUrl.pathname = `_viewport/${viewport}`
-
+  req.nextUrl.searchParams.set("b", `${browser.name}`)
+  // console.log(req.nextUrl)
   // Return rewrited response
   return NextResponse.rewrite(req.nextUrl)
 }
