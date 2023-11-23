@@ -7,7 +7,7 @@ const Detail: React.FunctionComponent<Props> = () => {
   const router = useRouter();
   console.log(router.query)
   return <div>
-    bot
+    bot test
     <div>b: {router.query.b}</div>
   </div>;
 };
