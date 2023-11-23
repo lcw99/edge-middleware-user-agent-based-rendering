@@ -21,6 +21,5 @@ export function middleware(req: NextRequest) {
   // req.nextUrl.searchParams.set("b", `${ua.ua}`)
   // console.log(req.nextUrl)
   // Return rewrited response
-  return NextResponse.redirect(req.nextUrl)
   return NextResponse.rewrite(req.nextUrl)
 }
