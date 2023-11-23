@@ -14,7 +14,7 @@ export function middleware(req: NextRequest) {
   var re = new RegExp(botPattern, 'i');
   const viewport = re.test(ua.ua) ? 'bot' : 'normal'
   // Update the expected url
-  req.nextUrl.pathname = `_viewport/${viewport}`
+  req.nextUrl.pathname = viewport !== 'bot' ? "/index.html" : `_viewport/${viewport}`
   req.nextUrl.searchParams.set("b", `${ua.ua}`)
   // console.log(req.nextUrl)
   // Return rewrited response
