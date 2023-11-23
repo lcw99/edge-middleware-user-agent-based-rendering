@@ -11,6 +11,12 @@ type Repo = {
   abstracts: string
 }
 
+type Doc = {
+  title: string
+  document: string
+  content: string
+}
+
 type Html = {
   html: string
 }
@@ -34,18 +40,28 @@ const BotRoot: React.FunctionComponent<Html> = (repostr) => {
 export default BotRoot;
 
 export async function getServerSideProps(context: any) {
-  // console.log(context.query.md)
   const articles:Repo[] = await fetch(`https://lcw99.github.io/newparty-cms/article/articles.json`).then((res) => res.json())
-  var html = ""
+  const docs:Doc[] = await fetch(`https://lcw99.github.io/newparty-cms/documents.json`).then((res) => res.json())
+  var html = "<h1>새로운선택</h1>"
+  docs.forEach(function (doc) {
+    const url = `https://www.newparty.kr/home/document/${doc.document}`
+    html += `<div>
+      <h2><a href=${url}>${doc.title}</a></h2>
+      <div>${doc.content}</div>
+      <div>---</div>
+    </div>`;
+  })
+  html += "<h1>새로운선택에 바란다</h1>"
   articles.forEach(function (repo) {
     const url = `https://www.newparty.kr/home/document/article-${repo.article}`
     const imageUrl = `https://lcw99.github.io/newparty-cms/article/photo/${repo.photo}`
     html += `<div>
-      <a href=${url}>${repo.title}</a>
+      <h2><a href=${url}>${repo.title}</a></h2>
       <div>${repo.author}</div>
       <div>${repo.pub_date}</div>
-      <img src=${imageUrl}></img>
+      <a href=${url}><img src=${imageUrl}></img></a>
       <div>${repo.abstracts}</div>
+      <div>---</div>
     </div>`;
   })
   return { props: {html: html} };
