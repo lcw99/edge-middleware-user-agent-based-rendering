@@ -7,7 +7,7 @@ const Detail: React.FunctionComponent<Props> = () => {
   const router = useRouter();
   console.log(router.query)
   return <div>
-    Detail
+    normal brower
     <div>b: {router.query.b}</div>
   </div>;
 };
