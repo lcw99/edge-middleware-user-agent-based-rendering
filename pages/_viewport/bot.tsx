@@ -14,12 +14,13 @@ type Repo = {
 const Detail: React.FunctionComponent<Repo> = (repo) => {
   if (repo.author == "newparty") {
     const imageUrl = "https://newparty.kr/icons/newparty.jpg"
+    const desc = repo.abstracts.substring(0, 50);
     return <>
       <Head>
         <title>{repo.title}</title>
-        <meta name="description" content={repo.abstracts} />
+        <meta name="description" content={desc} />
         <meta property="og:title" content={repo.title} />
-        <meta property="og:description" content={repo.abstracts} />
+        <meta property="og:description" content={desc} />
         <meta property="og:image" content={imageUrl} />
         <meta property="og:type" content="website" />
       </Head>
