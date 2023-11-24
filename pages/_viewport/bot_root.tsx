@@ -27,7 +27,7 @@ const BotRoot: React.FunctionComponent<Html> = (repostr) => {
   return <>
     <Head>
       <title>새로운선택</title>
-      <meta name="description" content="새로운선택" />
+      <meta name="description" content="새로운선택 공식 홈페이지"/>
       <meta property="og:title" content="새로운선택" />
       <meta property="og:description" content="새로운선택"/>
       <meta property="og:image" content="https://newparty.kr/icons/newparty.jpg"/>
