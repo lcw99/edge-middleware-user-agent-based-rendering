@@ -14,7 +14,7 @@ type Repo = {
 const Detail: React.FunctionComponent<Repo> = (repo) => {
   if (repo.author == "newparty") {
     const imageUrl = "https://newparty.kr/icons/newparty.jpg"
-    const desc = repo.abstracts.substring(0, 50);
+    const desc = repo.abstracts.replaceAll("\n", " ").substring(0, 50);
     return <>
       <Head>
         <title>{repo.title}</title>
