@@ -7760,7 +7760,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 --------------------------------------------------------------------------------
 flutter_lints
-flutter_markdown
+flutter_markdown_selectionarea
 flutter_plugin_android_lifecycle
 go_router
 path_provider
