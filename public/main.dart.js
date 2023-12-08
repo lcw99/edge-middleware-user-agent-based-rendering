@@ -106931,7 +106931,7 @@ var $async$A4=A.x(function(a,b){if(a===1)return A.t(b,r)
 while(true)switch(s){case 0:p=t.N
 o=A.E(["Content-Type","application/json; charset=UTF-8"],p,p)
 s=3
-return A.p(A.kH(A.c2("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fnews.newparty.kr%2Ffeed&api_key=rlvfmym3q7tmczp2ffihhtuc6rnpqu4traajucbx",0,null),o),$async$A4)
+return A.p(A.kH(A.c2("https://nextjs-cors-beta.vercel.app/api/cors?url=https%3A%2F%2Fapi.rss2json.com%2Fv1%2Fapi.json%3Frss_url%3Dhttps%3A%2F%2Fnews.newparty.kr%2Ffeed&api_key=rlvfmym3q7tmczp2ffihhtuc6rnpqu4traajucbx",0,null),o),$async$A4)
 case 3:n=b
 q=n.b===200?A.bb5(B.E.aT(0,B.D.aT(0,n.w))):null
 s=1
