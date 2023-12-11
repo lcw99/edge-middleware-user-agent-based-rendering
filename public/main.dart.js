@@ -106932,7 +106932,7 @@ while(true)switch(s){case 0:o=t.N
 n=A.E(["Content-Type","application/json; charset=UTF-8"],o,o)
 A.h4(B.eF,"https://medium.com/feed/\uc131\ucc30\uacfc-\ubaa8\uc0c9",B.C,!1)
 s=3
-return A.p(A.kH(A.c2("https://nextjs-cors-beta.vercel.app/api/cors-cache?url=https%3A%2F%2Fapi.rss2json.com%2Fv1%2Fapi.json%3Frss_url%3Dhttps%3A%2F%2Fnews.newparty.kr%2Ffeed&api_key=rlvfmym3q7tmczp2ffihhtuc6rnpqu4traajucbx",0,null),n),$async$A4)
+return A.p(A.kH(A.c2("https://nextjs-cors-beta.vercel.app/cors?url=https%3A%2F%2Fapi.rss2json.com%2Fv1%2Fapi.json%3Frss_url%3Dhttps%3A%2F%2Fnews.newparty.kr%2Ffeed&api_key=rlvfmym3q7tmczp2ffihhtuc6rnpqu4traajucbx",0,null),n),$async$A4)
 case 3:p=b
 q=p.b===200?A.bb5(B.E.aT(0,B.C.aT(0,p.w))):null
 s=1
