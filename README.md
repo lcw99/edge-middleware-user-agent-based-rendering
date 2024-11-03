@@ -28,37 +28,37 @@ Rather than struggling with these limitations, a practical solution involves emb
 3. **Server-Side Rendering with Next.js:**
    In your Next.js pages, use server-side rendering to detect crawlers and modify meta tags dynamically. Here's an example of a basic setup of middleware.ts:
    ```jsx
-  import { NextRequest, NextResponse, userAgent } from 'next/server'
+    import { NextRequest, NextResponse, userAgent } from 'next/server'
 
-  // Set pathname were middleware will be executed
-  export const config = {
-    matcher: ['/', '/home/:path*'],
-  }
-
-  export function middleware(req: NextRequest) {
-    const ua = userAgent(req)
-    const isLocalHost = req.nextUrl.host.includes("localhost")
-    // const isLocalHost = false;
-    var botPattern = "(googlebot\/|bot|Googlebot-Mobile|...)";
-    var re = new RegExp(botPattern, 'i');
-    var isBot = re.test(ua.ua);
-
-    if ((isBot || isLocalHost) && req.nextUrl.pathname == "/") {
-      req.nextUrl.pathname = "_viewport/bot_root"
-      return NextResponse.rewrite(req.nextUrl)
+    // Set pathname were middleware will be executed
+    export const config = {
+      matcher: ['/', '/home/:path*'],
     }
 
-    if (req.nextUrl.pathname.endsWith(".md")) {
-      if (isBot || isLocalHost) {
-        var mdPath = req.nextUrl.pathname.substring(req.nextUrl.pathname.lastIndexOf("/") + 1)
-        req.nextUrl.searchParams.set("md", mdPath)
-        req.nextUrl.pathname = "_viewport/bot"
+    export function middleware(req: NextRequest) {
+      const ua = userAgent(req)
+      const isLocalHost = req.nextUrl.host.includes("localhost")
+      // const isLocalHost = false;
+      var botPattern = "(googlebot\/|bot|Googlebot-Mobile|...)";
+      var re = new RegExp(botPattern, 'i');
+      var isBot = re.test(ua.ua);
+
+      if ((isBot || isLocalHost) && req.nextUrl.pathname == "/") {
+        req.nextUrl.pathname = "_viewport/bot_root"
         return NextResponse.rewrite(req.nextUrl)
       }
+
+      if (req.nextUrl.pathname.endsWith(".md")) {
+        if (isBot || isLocalHost) {
+          var mdPath = req.nextUrl.pathname.substring(req.nextUrl.pathname.lastIndexOf("/") + 1)
+          req.nextUrl.searchParams.set("md", mdPath)
+          req.nextUrl.pathname = "_viewport/bot"
+          return NextResponse.rewrite(req.nextUrl)
+        }
+      }
+      req.nextUrl.pathname = "/index.html"
+      return NextResponse.rewrite(req.nextUrl)
     }
-    req.nextUrl.pathname = "/index.html"
-    return NextResponse.rewrite(req.nextUrl)
-  }
    ```
 ## Conclusion:
 
